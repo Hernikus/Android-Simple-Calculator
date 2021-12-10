@@ -3,6 +3,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('C:\\Users\\LENOVO\\Documents\\Juara Coding\\keystore.jks')
+            storePassword '123456'
+            keyAlias 'admin'
+            keyPassword '123456'
+        }
+    }
     compileSdk 31
 
     defaultConfig {
@@ -19,6 +27,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+        debug {
+            signingConfig signingConfigs.debug
         }
     }
     compileOptions {
